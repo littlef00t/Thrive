@@ -11,3 +11,12 @@
 /log/*
 !/log/.keep
 /tmp
+
+.DS_Store
+node_modules
+app/assets/javascripts/bundle.js
+bundle.js
+bundle.js.map
+
+#ignore application configuration?
+/config/application.yml
