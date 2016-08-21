@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :shelters
+    resources :shelters, only: [:index, :show, :create]
   end
+
+  root "staticpages#root"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
