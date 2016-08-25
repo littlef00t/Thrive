@@ -1,15 +1,17 @@
 import { ShelterConstants } from '../actions/shelters_actions';
+import fetchShelters from '../util/shelter_api_util';
 
 const SheltersMiddleware = ({getState, dispatch}) => next => action => {
   switch(action.type){
     case ShelterConstants.REQUEST_SHELTERS:
-      console.log('time to fetch shelters!')
-      next(action);
+      console.log('time to fetch shelters!');
+      fetchShelters;
+      break;
     case ShelterConstants.RECEIVE_SHELTERS:
       console.log('recieving shelters...');
-      next(action);
+      break;
     default:
-      next(action);
+      break;
   }
 }
 
