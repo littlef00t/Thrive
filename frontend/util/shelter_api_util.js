@@ -1,8 +1,8 @@
-export const fetchShelters = function(){
+export const fetchShelters = (success) => {
   $.ajax({
     method: 'GET',
     url: '/api/shelters',
-    success: data => console.log(data),
+    success: success,
     error: () => console.log('error')
   })
 }
