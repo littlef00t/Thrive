@@ -11,7 +11,7 @@ const SheltersMiddleware = ({getState, dispatch}) => next => action => {
       fetchShelters(success);
       break;
     default:
-      break;
+      next(action);
   }
 }
 
