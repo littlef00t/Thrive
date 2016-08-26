@@ -10,10 +10,6 @@ const SheltersMiddleware = ({getState, dispatch}) => next => action => {
       console.log('time to fetch shelters!');
       fetchShelters(success);
       break;
-    case ShelterConstants.RECEIVE_SHELTERS:
-      console.log('recieving shelters...');
-
-      break;
     default:
       break;
   }
