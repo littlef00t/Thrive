@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
+import ShelterIndex from './shelter_index';
 
 const mapStatetoProps = state => ({
-  shelters: state.shelters;
+  shelters: state.shelters
 })
 
 const mapDispatchtoProps = dispatch => ({
