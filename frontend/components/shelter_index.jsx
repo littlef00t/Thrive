@@ -4,7 +4,7 @@ import { requestShelters } from '../actions/shelters_actions';
 
 class ShelterIndex extends React.Component{
   componentDidMount(){
-    configureStore.dispatch(requestShelters());
+    requestShelters();
   }
 
   render(){
