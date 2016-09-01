@@ -4,11 +4,14 @@ import { requestShelters } from '../actions/shelters_actions';
 
 class ShelterIndex extends React.Component{
   componentDidMount(){
-    requestShelters();
+    this.props.requestShelters();
   }
 
   render(){
-    <h3>Shelters</h3>
+    return(
+      <h3>Shelters</h3>
+
+    );
 
   }
 };

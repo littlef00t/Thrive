@@ -12,11 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.fetchShelters = fetchShelters;
   // window.requestShelters = requestShelters;
   // window.receiveShelters = receiveShelters;
-  const Root = (
-    <Provider store={configureStore}>
+  let store = configureStore();
+  const Root = () => (
+    <Provider store={store}>
       <ShelterIndexContainer/>
     </Provider>
   );
 
-  ReactDOM.render(<div>{Root}</div>, document.getElementById('content'));
+  ReactDOM.render(<Root/>, document.getElementById('content'));
 });
