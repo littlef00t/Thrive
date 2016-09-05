@@ -10,4 +10,8 @@ export const requestShelters = () => ({
 export const receiveShelters = shelters => ({
   type: ShelterConstants.RECEIVE_SHELTERS,
   shelters
-})
+});
+
+export const fetchSheltersThunk = () => (dispatch) => {
+  dispatch(requestShelters)
+}
