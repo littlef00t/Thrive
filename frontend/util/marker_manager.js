@@ -29,7 +29,7 @@ class MarkerManager {
     const marker = new google.maps.Marker({
       position,
       map: this.map,
-      shelterId: shelter.id
+      title: shelter.name
     });
   }
 }
