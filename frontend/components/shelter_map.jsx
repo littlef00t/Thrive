@@ -1,4 +1,5 @@
 import React from 'react';
+import MarkerManager from '../util/marker_manager';
 
 class ShelterMap extends React.Component{
   componentDidMount(){
@@ -13,6 +14,8 @@ class ShelterMap extends React.Component{
 
     // wrap the mapDOMNode in a Google Map
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
+    this.MarkerManager = new MarkerManager(this.map);
+    this.MarkerManager.updateMarkers();
   }
 
   render(){

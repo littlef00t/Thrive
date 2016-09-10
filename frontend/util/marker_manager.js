@@ -8,3 +8,5 @@ class MarkerManager {
     console.log('updating shelters');
   }
 }
+
+export default MarkerManager;
