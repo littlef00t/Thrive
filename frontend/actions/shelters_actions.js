@@ -14,34 +14,35 @@ export const receiveShelters = shelters => ({
   shelters
 });
 
-function fetchShelters() {
-  return fetch('http://localhost:3000/api/shelters')
-};
-
-export function fetchSheltersThunk(){
-  return function(dispatch){
-    return fetchShelters().then(
-      shelters => dispatch(receiveShelters(shelters)),
-      error => console.log('error')
-    )
-  }
-}
-
-export function fetchSheltersApi() {
-  return {
-    [CALL_API]: '/shelters',
-    types: [
-      'REQUEST',
-        dispatch(receiveShelters),
-      // {
-      //   type: 'SUCCESS',
-      //   payload: (action, state, res) => {
-      //     console.log('in redux-api-middleware');
-      //     return dispatch(receiveShelters(res));
-      //   }
-    // },
-      'FAILURE'
-    ]
-
-  }
-}
+//playing around with thunk and api middleware
+// function fetchShelters() {
+//   return fetch('http://localhost:3000/api/shelters')
+// };
+//
+// export function fetchSheltersThunk(){
+//   return function(dispatch){
+//     return fetchShelters().then(
+//       shelters => dispatch(receiveShelters(shelters)),
+//       error => console.log('error')
+//     )
+//   }
+// }
+//
+// export function fetchSheltersApi() {
+//   return {
+//     [CALL_API]: '/shelters',
+//     types: [
+//       'REQUEST',
+//         dispatch(receiveShelters),
+//       // {
+//       //   type: 'SUCCESS',
+//       //   payload: (action, state, res) => {
+//       //     console.log('in redux-api-middleware');
+//       //     return dispatch(receiveShelters(res));
+//       //   }
+//     // },
+//       'FAILURE'
+//     ]
+//
+//   }
+// }
