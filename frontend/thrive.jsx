@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
   const Root = () => (
     <Provider store={store}>
-      <SearchContainer/>
+      <SearchContainer />
     </Provider>
   );
 
