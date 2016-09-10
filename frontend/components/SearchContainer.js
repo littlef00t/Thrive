@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ShelterIndex from './shelter_index';
+import Search from './Search';
 import { requestShelters } from '../actions/shelters_actions';
 
 const mapStatetoProps = state => ({
@@ -13,4 +13,4 @@ const mapDispatchtoProps = dispatch => ({
 export default connect(
   mapStatetoProps,
   mapDispatchtoProps
-)(ShelterIndex);
+)(Search);

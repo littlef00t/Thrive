@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import ShelterIndexContainer from './components/shelter_index_container';
+import SearchContainer from './components/SearchContainer';
 import configureStore from './store/store';
 import { requestShelters, receiveShelters } from './actions/shelters_actions';
 import { fetchShelters } from './util/shelter_api_util';
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
   const Root = () => (
     <Provider store={store}>
-      <ShelterIndexContainer/>
+      <SearchContainer/>
     </Provider>
   );
 
