@@ -15,11 +15,11 @@ class ShelterMap extends React.Component{
     // wrap the mapDOMNode in a Google Map
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
-    this.MarkerManager.updateMarkers();
+    this.MarkerManager.updateMarkers(this.props.shelters);
   }
 
   componentDidUpdate(){
-    this.MarkerManager.updateMarkers();
+    this.MarkerManager.updateMarkers(this.props.shelters);
   }
 
   render(){

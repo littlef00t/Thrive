@@ -4,7 +4,7 @@ import ShelterIndex from './shelter_index';
 
 const Search = ({shelters, requestShelters}) => (
   <div>
-    <ShelterMap />
+    <ShelterMap shelters={shelters}/>
     <ShelterIndex shelters={shelters} requestShelters={requestShelters}/>
   </div>
 );
