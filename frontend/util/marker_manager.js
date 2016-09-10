@@ -6,6 +6,7 @@ class MarkerManager {
 
   updateMarkers(shelters){
     this.shelters = shelters;
+    console.log(this._sheltersToAdd());
     this._sheltersToAdd().forEach(this._createMarkerFromShelter.bind(this));
   }
 
@@ -14,23 +15,22 @@ class MarkerManager {
     const newShelters = this.shelters;
     const newShelterIds = Object.keys(newShelters);
 
-    return newShelterIds.reduce( (collection, shelterId) => {
+    //initializing reduce with empty array
+    return newShelterIds.reduce( (previousVal, shelterId) => {
       if (!currentShelterIds.includes(shelterId)) {
-        console.log('adding', shelterId)
-        return ( collection.concat( [newShelters[shelterId]] ));
+        //adding shelter object to previous arr
+        return ( previousVal.concat( [newShelters[shelterId]] ));
       }
     }, [] );
   }
 
   _createMarkerFromShelter(shelter){
-    console.log(shelter.lat, shelter.long);
-    const position = new google.maps.LatLng(shelter.long, shelter.lat);
+    const position = new google.maps.LatLng(shelter.lat, shelter.long);
     const marker = new google.maps.Marker({
       position,
       map: this.map,
       shelterId: shelter.id
     });
-    console.log('marker created');
   }
 }
 
