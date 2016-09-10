@@ -18,6 +18,10 @@ class ShelterMap extends React.Component{
     this.MarkerManager.updateMarkers();
   }
 
+  componentDidUpdate(){
+    this.MarkerManager.updateMarkers();
+  }
+
   render(){
 
     return (
