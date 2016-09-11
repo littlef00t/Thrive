@@ -3,6 +3,7 @@ import MarkerManager from '../util/marker_manager';
 
 class ShelterMap extends React.Component{
   componentDidMount(){
+
     // find the `<map>` node on the DOM
     const mapDOMNode = this.refs.map;
 
@@ -16,6 +17,9 @@ class ShelterMap extends React.Component{
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.shelters);
+    this.map.addListener('idle', () => {
+      console.log(this.map.getBounds());
+    })
   }
 
   componentDidUpdate(){
