@@ -7,15 +7,13 @@ const defaultState = {
   }
 };
 
-const FilterReducer = ({state = defaultState, action}) => {
+const FilterReducer = function (state = defaultState, action) {
   switch(action.type){
     case FilterConstants.UPDATE_BOUNDS:
-      console.log('in filter reducer');
+      console.log('in filter reducer', action.bounds);
     default:
       return state;
   }
-}
-
 }
 
 export default FilterReducer;

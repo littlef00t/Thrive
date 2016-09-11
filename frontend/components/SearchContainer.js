@@ -9,7 +9,7 @@ const mapStatetoProps = state => ({
 
 const mapDispatchtoProps = dispatch => ({
   requestShelters: () => dispatch(requestShelters()),
-  updateBounds: (bounds) => dispatch(updateBounds())
+  updateBounds: (bounds) => dispatch(updateBounds(bounds))
 })
 
 export default connect(
