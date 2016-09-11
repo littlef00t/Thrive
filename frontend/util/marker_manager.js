@@ -6,7 +6,6 @@ class MarkerManager {
 
   updateMarkers(shelters){
     this.shelters = shelters;
-    console.log(this._sheltersToAdd());
     this._sheltersToAdd().forEach(this._createMarkerFromShelter.bind(this));
   }
 

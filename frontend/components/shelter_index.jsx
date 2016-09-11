@@ -5,7 +5,6 @@ import { requestShelters } from '../actions/shelters_actions';
 class ShelterIndex extends React.Component{
   componentDidMount(){
     this.props.requestShelters();
-    console.log('component mounted', this.props.shelters);
   }
 
   render(){
