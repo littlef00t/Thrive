@@ -1,6 +1,7 @@
 class Api::SheltersController < ApplicationController
   def index
-    @shelters = Shelter.all
+    bounds = params[:bounds]
+    @shelters = bounds ? Shelter.in_bounds(params[:bounds]) : Shelter.all
     render json: @shelters
   end
 

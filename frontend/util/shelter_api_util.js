@@ -3,6 +3,6 @@ export const fetchShelters = (success) => {
     method: 'GET',
     url: '/api/shelters',
     success,
-    error: () => console.log('error')
+    error: (e) => console.log(e)
   })
 }
