@@ -7,7 +7,14 @@ import { apiMiddleware, CALL_API } from 'redux-api-middleware';
 //playing around with apimiddleware
 // const createStoreWithMiddleware = applyMiddleware(apiMiddleware)(createStore);
 
-const configureStore = (preloadedState = {shelters: []}) => (
+const defaultState = {
+  shelters: [],
+  filters: {
+    bounds: {}
+  }
+};
+
+const configureStore = (preloadedState = defaultState) => (
   createStore(
     RootReducer,
     preloadedState,
