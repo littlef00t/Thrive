@@ -1,9 +1,19 @@
 import { ShelterConstants } from '../actions/shelters_actions';
+import { assoc } from 'ramda';
 
-const SheltersReducer = function (state = {}, action) {
+const initialState = {
+  shelters: [],
+  filters: {
+    bounds: {}
+  }
+};
+
+const SheltersReducer = function (state = initialState, action) {
   switch(action.type){
     case ShelterConstants.RECEIVE_SHELTERS:
-      return action.shelters;
+      console.log('recieving shelters in reducer');
+      return assoc('shelters', [action.shelters], state);
+      break;
     default:
       return state;
   }

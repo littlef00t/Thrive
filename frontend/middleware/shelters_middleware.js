@@ -13,7 +13,7 @@ const SheltersMiddleware = ({getState, dispatch}) => next => action => {
       //     "northEast": {"lat": "37.80971", "lng":"-122.39208"},
       //     "southWest": {"lat": "37.74187", "lng": "-122.47791"}
       //   }};
-      const filters = getState().filters;
+      const filters = getState().filters.bounds;
       console.log(filters);
       fetchShelters(filters, success);
       break;

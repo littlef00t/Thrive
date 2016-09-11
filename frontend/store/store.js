@@ -10,7 +10,7 @@ import { apiMiddleware, CALL_API } from 'redux-api-middleware';
 const defaultState = {
   shelters: [],
   filters: {
-    bounds: []
+    bounds: {}
   }
 };
 
