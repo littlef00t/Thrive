@@ -18,7 +18,12 @@ class ShelterMap extends React.Component{
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.shelters);
     this.map.addListener('idle', () => {
-      console.log(this.map.getBounds());
+      const { south, west, north, east } = this.map.getBounds().toJSON();
+      const bounds = {
+        northEast: {lat: north, lng: east},
+        southWest: {lat: south, lng: west}
+      };
+      this.props.updateBounds(bounds);
     })
   }
 
