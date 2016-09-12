@@ -6,20 +6,24 @@ class MarkerManager {
 
   updateMarkers(shelters){
     this.shelters = shelters;
-    this._sheltersToAdd().forEach(this._createMarkerFromShelter.bind(this));
+    this.shelterIndexes = Object.keys(this.shelters);
     this._markersToRemove().forEach(this._removeMarker.bind(this));
+    this._sheltersToAdd().forEach(this._createMarkerFromShelter.bind(this));
+    console.log(this.markers);
   }
 
   _sheltersToAdd(){
     const currentShelterIds = this.markers.map( marker => marker.shelterId )
     const newShelters = this.shelters;
-    const newShelterIds = Object.keys(newShelters);
+    const newShelterIndexes = Object.keys(newShelters);
 
     //initializing reduce with empty array
-    return newShelterIds.reduce( (previousVal, shelterId) => {
-      if (!currentShelterIds.includes(shelterId)) {
+    return newShelterIndexes.reduce( (previousVal, shelterIndex) => {
+      console.log(newShelters[shelterIndex].id);
+      if (!currentShelterIds.includes(newShelters[shelterIndex].id)) {
         //adding shelter object to previous arr
-        return ( previousVal.concat( [newShelters[shelterId]] ));
+        console.log(previousVal);
+        return ( previousVal.concat( [newShelters[shelterIndex]] ));
       }
     }, [] );
   }
@@ -33,19 +37,28 @@ class MarkerManager {
       shelterId: shelter.id
     });
     this.markers.push(marker);
+    console.log('marker made', marker.shelterId);
   }
 
   _markersToRemove(){
+    // console.log('shelter indexes to be in this map', this.shelterIndexes);
+    const shelterIds = this.shelterIndexes.map( shelterId => this.shelters[shelterId].id )
+    // console.log('shelter ids to be in this map', shelterIds);
+    // console.log('markers on previous map', this.markers);
+    // console.log(this.markers.filter( marker => {
+    //   return !shelterIds.hasOwnProperty(marker.shelterId);
+    // }));
     return this.markers.filter( marker => {
-      return !this.shelters.hasOwnProperty(marker.shelterId);
+      return !shelterIds.hasOwnProperty(marker.shelterId);
     })
   }
 
   _removeMarker(marker){
     const i = this.markers.indexOf(marker);
-    marker.setMap(null);
+    this.markers[i].setMap(null);
     //deleting marker from this.markers
     this.markers.splice(i, 1);
+    console.log('marker removed', marker.shelterId);
 
   }
 }
