@@ -14,7 +14,6 @@ const SheltersMiddleware = ({getState, dispatch}) => next => action => {
       //     "southWest": {"lat": "37.74187", "lng": "-122.47791"}
       //   }};
       const filters = getState().filters;
-      console.log('filters', filters);
       fetchShelters(filters, success);
       break;
     case FilterConstants.UPDATE_BOUNDS:
