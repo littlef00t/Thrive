@@ -11,6 +11,7 @@ const initialState = {
 const SheltersReducer = function (state = initialState, action) {
   switch(action.type){
     case ShelterConstants.RECEIVE_SHELTERS:
+      console.log(action.shelters);
       console.log(state);
       return assoc('shelters', action.shelters, state);
       break;
