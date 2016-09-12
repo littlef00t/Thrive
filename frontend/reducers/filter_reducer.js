@@ -1,13 +1,11 @@
 import { FilterConstants } from '../actions/filter_actions';
-import { assocPath, merge } from 'ramda';
+import { assoc } from 'ramda';
 
 
 const FilterReducer = function (state = { bounds: {} }, action) {
   switch(action.type){
     case FilterConstants.UPDATE_BOUNDS:
-      const temp = assoc('bounds', action.bounds, state)
-      console.log('update bounds state', temp);
-      return temp;
+      return assoc('bounds', action.bounds, state)
       break;
     default:
       return state;
