@@ -7,6 +7,7 @@ class MarkerManager {
   updateMarkers(shelters){
     this.shelters = shelters;
     this._sheltersToAdd().forEach(this._createMarkerFromShelter.bind(this));
+    this._markersToRemove().forEach(this._removeMarker.bind(this));
   }
 
   _sheltersToAdd(){
@@ -28,21 +29,23 @@ class MarkerManager {
     const marker = new google.maps.Marker({
       position,
       map: this.map,
-      title: shelter.name
+      title: shelter.name,
+      shelterId: shelter.id
     });
     this.markers.push(marker);
   }
 
   _markersToRemove(){
-    let toRemove = [];
-    this.markers.forEach((marker) => {
-      if (this.shelters.includes()) {
-        toRemove.push(marker);
-      }
+    return this.markers.filter( marker => {
+      return !this.shelters.hasOwnProperty(marker.shelterId);
     })
   }
 
-  _removemarker(marker){
+  _removeMarker(marker){
+    const i = this.markers.indexOf(marker);
+    marker.setMap(null);
+    //deleting marker from this.markers
+    this.markers.splice(i, 1);
 
   }
 }

@@ -9,7 +9,7 @@ class ShelterMap extends React.Component{
 
     // set the map to show SF
     const mapOptions = {
-      center: {lat: 37.7758, lng: -122.435}, // this is SF
+      center: {lat: 37.7758, lng: -122.435},
       zoom: 13
     };
 

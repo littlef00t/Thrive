@@ -9,7 +9,7 @@ import { assoc } from 'ramda';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // window.Store = configureStore();
+  window.Store = configureStore();
   // window.fetchShelters = fetchShelters;
   // window.requestShelters = requestShelters;
   // window.receiveShelters = receiveShelters;
