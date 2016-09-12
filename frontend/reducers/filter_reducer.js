@@ -12,10 +12,12 @@ const FilterReducer = function (state = initialState, action) {
   switch(action.type){
     case FilterConstants.UPDATE_BOUNDS:
       const temp = assocPath(['filters', 'bounds'], action.bounds, state)
-      console.log(temp);
+      console.log('update bounds state', temp);
       return temp;
+      break;
     default:
       return state;
+      break;
   }
 }
 
