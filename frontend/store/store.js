@@ -8,7 +8,7 @@ import RootMiddleware from '../middleware/root_middleware';
 // const createStoreWithMiddleware = applyMiddleware(apiMiddleware)(createStore);
 
 const defaultState = {
-  shelters: [],
+  shelters: {},
   filters: {
     bounds: {}
   }

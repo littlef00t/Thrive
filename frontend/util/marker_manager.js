@@ -30,6 +30,20 @@ class MarkerManager {
       map: this.map,
       title: shelter.name
     });
+    this.markers.push(marker);
+  }
+
+  _markersToRemove(){
+    let toRemove = [];
+    this.markers.forEach((marker) => {
+      if (this.shelters.includes()) {
+        toRemove.push(marker);
+      }
+    })
+  }
+
+  _removemarker(marker){
+
   }
 }
 

@@ -9,10 +9,6 @@ const SheltersMiddleware = ({getState, dispatch}) => next => action => {
   switch(action.type){
     case ShelterConstants.REQUEST_SHELTERS:
       const success = shelters => dispatch(receiveShelters(shelters));
-      // const filters = {"bounds": {
-      //     "northEast": {"lat": "37.80971", "lng":"-122.39208"},
-      //     "southWest": {"lat": "37.74187", "lng": "-122.47791"}
-      //   }};
       const filters = getState().filters;
       fetchShelters(filters, success);
       break;
