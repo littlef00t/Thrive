@@ -2,13 +2,15 @@ class MarkerManager {
   constructor(map) {
     this.map = map;
     this.markers = [];
+    this.createMarker = this._createMarkerFromShelter.bind(this);
+    this.removeMarker = this._removeMarker.bind(this);
   }
 
   updateMarkers(shelters){
     this.shelters = shelters;
     this.shelterIndexes = Object.keys(this.shelters);
-    this._markersToRemove().forEach(this._removeMarker.bind(this));
-    this._sheltersToAdd().forEach(this._createMarkerFromShelter.bind(this));
+    this._markersToRemove().forEach(this.removeMarker);
+    this._sheltersToAdd().forEach(this.createMarker);
     console.log(this.markers);
   }
 
