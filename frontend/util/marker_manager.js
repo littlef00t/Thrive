@@ -7,6 +7,7 @@ class MarkerManager {
   }
 
   updateMarkers(shelters){
+    console.log(shelters);
     this.shelters = shelters;
     this.shelterIndexes = Object.keys(this.shelters);
     this._markersToRemove().forEach(this.removeMarker);
@@ -24,7 +25,7 @@ class MarkerManager {
       console.log(newShelters[shelterIndex].id);
       if (!currentShelterIds.includes(newShelters[shelterIndex].id)) {
         //adding shelter object to previous arr
-        console.log(previousVal);
+        console.log('previous value', previousVal);
         return ( previousVal.concat( [newShelters[shelterIndex]] ));
       }
     }, [] );
@@ -39,19 +40,18 @@ class MarkerManager {
       shelterId: shelter.id
     });
     this.markers.push(marker);
-    console.log('marker made', marker.shelterId);
+    console.log('marker made, shelter:id', marker.shelterId);
   }
 
   _markersToRemove(){
-    // console.log('shelter indexes to be in this map', this.shelterIndexes);
     const shelterIds = this.shelterIndexes.map( shelterId => this.shelters[shelterId].id )
-    // console.log('shelter ids to be in this map', shelterIds);
+    console.log('shelter ids to be in this map', shelterIds);
     // console.log('markers on previous map', this.markers);
     // console.log(this.markers.filter( marker => {
     //   return !shelterIds.hasOwnProperty(marker.shelterId);
     // }));
     return this.markers.filter( marker => {
-      return !shelterIds.hasOwnProperty(marker.shelterId);
+      return !shelterIds.includes(marker.shelterId);
     })
   }
 
