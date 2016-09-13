@@ -7,28 +7,33 @@ class MarkerManager {
   }
 
   updateMarkers(shelters){
-    console.log(shelters);
     this.shelters = shelters;
     this.shelterIndexes = Object.keys(this.shelters);
-    this._markersToRemove().forEach(this.removeMarker);
     this._sheltersToAdd().forEach(this.createMarker);
-    console.log(this.markers);
+    this._markersToRemove().forEach(this.removeMarker);
   }
 
   _sheltersToAdd(){
     const currentShelterIds = this.markers.map( marker => marker.shelterId )
     const newShelters = this.shelters;
-    const newShelterIndexes = Object.keys(newShelters);
+    const newShelterIndexes = this.shelterIndexes;
 
-    //initializing reduce with empty array
-    return newShelterIndexes.reduce( (previousVal, shelterIndex) => {
-      console.log(newShelters[shelterIndex].id);
-      if (!currentShelterIds.includes(newShelters[shelterIndex].id)) {
-        //adding shelter object to previous arr
-        console.log('previous value', previousVal);
-        return ( previousVal.concat( [newShelters[shelterIndex]] ));
+    let sheltersToAdd = [];
+    newShelterIndexes.forEach(shelterIndex => {
+      if (!currentShelterIds.includes(newShelters[shelterIndex].id)){
+        sheltersToAdd.push(newShelters[shelterIndex]);
       }
-    }, [] );
+    })
+    return sheltersToAdd;
+    // //initializing reduce with empty array
+    // return newShelterIndexes.reduce( (previousVal, shelterIndex) => {
+    //   console.log(newShelters[shelterIndex].id);
+    //   console.log('previous value', previousVal);
+    //   if (!currentShelterIds.includes(newShelters[shelterIndex].id)) {
+    //     //adding shelter object to previous arr
+    //     return ( previousVal.concat( [newShelters[shelterIndex]] ));
+    //   }
+    // }, [] );
   }
 
   _createMarkerFromShelter(shelter){
@@ -40,12 +45,11 @@ class MarkerManager {
       shelterId: shelter.id
     });
     this.markers.push(marker);
-    console.log('marker made, shelter:id', marker.shelterId);
   }
 
   _markersToRemove(){
     const shelterIds = this.shelterIndexes.map( shelterId => this.shelters[shelterId].id )
-    console.log('shelter ids to be in this map', shelterIds);
+    // console.log('shelter ids to be in this map', shelterIds);
     // console.log('markers on previous map', this.markers);
     // console.log(this.markers.filter( marker => {
     //   return !shelterIds.hasOwnProperty(marker.shelterId);
@@ -60,8 +64,6 @@ class MarkerManager {
     this.markers[i].setMap(null);
     //deleting marker from this.markers
     this.markers.splice(i, 1);
-    console.log('marker removed', marker.shelterId);
-
   }
 }
 
