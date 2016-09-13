@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import RootReducer from '../reducers/root_reducer';
 import RootMiddleware from '../middleware/root_middleware';
 // import thunk from 'redux-thunk';
@@ -18,7 +18,8 @@ const configureStore = (preloadedState = defaultState) => (
   createStore(
     RootReducer,
     preloadedState,
-    RootMiddleware
+    compose ( RootMiddleware,
+    window.devToolsExtension ? window.devToolsExtension() : f => f )
     // applyMiddleware(thunk)
   )
 );
