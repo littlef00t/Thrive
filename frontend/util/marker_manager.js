@@ -1,6 +1,7 @@
 class MarkerManager {
-  constructor(map) {
+  constructor(map, handleClick) {
     this.map = map;
+    this.handleCLick = handleClick;
     this.markers = [];
     this.createMarker = this._createMarkerFromShelter.bind(this);
     this.removeMarker = this._removeMarker.bind(this);
@@ -45,6 +46,7 @@ class MarkerManager {
       shelterId: shelter.id
     });
     this.markers.push(marker);
+    marker.addListener('click', () => this.handleClick(shelter));
   }
 
   _markersToRemove(){
